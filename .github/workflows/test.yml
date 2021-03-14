@@ -45,6 +45,6 @@ jobs:
           cp config/database.github.yml config/database.yml
           bundle exec rails db:test:prepare
       - name: Run model tests
-        run: bundle exec rails test
+        run: bundle exec rspec
 #      - name: Run system tests
 #        run: bundle exec rails test:system
