@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="70e6e8bb-5b4b-4949-af39-0045485d465c" name="Default Changelist" comment="switched to postgres">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
-    </list>
+    <list default="true" id="70e6e8bb-5b4b-4949-af39-0045485d465c" name="Default Changelist" comment="moved faker gem to be available in production" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -186,7 +183,7 @@
       <workItem from="1615551363008" duration="39000" />
       <workItem from="1615551428926" duration="6331000" />
       <workItem from="1615732333079" duration="3600000" />
-      <workItem from="1615735978226" duration="13556000" />
+      <workItem from="1615735978226" duration="14013000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1615551563733</created>
@@ -244,7 +241,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615752831518</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="moved faker gem to be available in production">
+      <created>1615753052779</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1615753052779</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -270,6 +274,7 @@
     <MESSAGE value="segment tests v1" />
     <MESSAGE value="gemfile.lock update" />
     <MESSAGE value="switched to postgres" />
-    <option name="LAST_COMMIT_MESSAGE" value="switched to postgres" />
+    <MESSAGE value="moved faker gem to be available in production" />
+    <option name="LAST_COMMIT_MESSAGE" value="moved faker gem to be available in production" />
   </component>
 </project>
