@@ -59,7 +59,7 @@ RSpec.describe 'Blog API', type: :request do
       end
     end
 
-    context 'when the request is valid' do
+    context 'when the request is not valid' do
       before { post '/posts', params: { title: '' } }
 
       it 'returns status code 422' do

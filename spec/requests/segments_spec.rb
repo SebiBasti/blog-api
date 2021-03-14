@@ -69,7 +69,7 @@ RSpec.describe 'Segments API', type: :request do
       end
     end
 
-    context 'when an invalid request' do
+    context 'when request attributes are not valid' do
       before { post "/posts/#{post_id}/segments", params: {} }
 
       it 'returns status code 422' do
