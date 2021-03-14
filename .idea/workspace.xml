@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="70e6e8bb-5b4b-4949-af39-0045485d465c" name="Default Changelist" comment="gemfile.lock update">
-      <change beforePath="$PROJECT_DIR$/.idea/blog-api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/blog-api.iml" afterDir="false" />
+    <list default="true" id="70e6e8bb-5b4b-4949-af39-0045485d465c" name="Default Changelist" comment="switched to postgres">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/database.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,7 +186,7 @@
       <workItem from="1615551363008" duration="39000" />
       <workItem from="1615551428926" duration="6331000" />
       <workItem from="1615732333079" duration="3600000" />
-      <workItem from="1615735978226" duration="13307000" />
+      <workItem from="1615735978226" duration="13556000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1615551563733</created>
@@ -240,7 +237,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615751857078</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="switched to postgres">
+      <created>1615752831518</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1615752831518</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -265,6 +269,7 @@
     <MESSAGE value="post tests v1" />
     <MESSAGE value="segment tests v1" />
     <MESSAGE value="gemfile.lock update" />
-    <option name="LAST_COMMIT_MESSAGE" value="gemfile.lock update" />
+    <MESSAGE value="switched to postgres" />
+    <option name="LAST_COMMIT_MESSAGE" value="switched to postgres" />
   </component>
 </project>
