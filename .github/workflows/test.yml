@@ -1,4 +1,4 @@
-name: Test
+name: model & request tests
 
 # triggers on
 on: [push]
@@ -46,5 +46,3 @@ jobs:
           bundle exec rails db:test:prepare
       - name: Run model tests
         run: bundle exec rspec
-#      - name: Run system tests
-#        run: bundle exec rails test:system

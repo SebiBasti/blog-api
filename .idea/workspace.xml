@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="70e6e8bb-5b4b-4949-af39-0045485d465c" name="Default Changelist" comment="github workflow integration">
+    <list default="true" id="70e6e8bb-5b4b-4949-af39-0045485d465c" name="Default Changelist" comment="readme updated">
       <change beforePath="$PROJECT_DIR$/.github/workflows/test.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/test.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,7 +194,7 @@
       <workItem from="1615551363008" duration="39000" />
       <workItem from="1615551428926" duration="6331000" />
       <workItem from="1615732333079" duration="3600000" />
-      <workItem from="1615735978226" duration="15107000" />
+      <workItem from="1615735978226" duration="15906000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1615551563733</created>
@@ -279,7 +280,21 @@
       <option name="project" value="LOCAL" />
       <updated>1615754467232</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="github workflow integration">
+      <created>1615754574564</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1615754574564</updated>
+    </task>
+    <task id="LOCAL-00014" summary="readme updated">
+      <created>1615754758981</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1615754758981</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -307,6 +322,7 @@
     <MESSAGE value="switched to postgres" />
     <MESSAGE value="moved faker gem to be available in production" />
     <MESSAGE value="github workflow integration" />
-    <option name="LAST_COMMIT_MESSAGE" value="github workflow integration" />
+    <MESSAGE value="readme updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="readme updated" />
   </component>
 </project>
