@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Blog API", type: :request do
+RSpec.describe 'Blog API', type: :request do
   let!(:posts) { create_list(:post, 10) }
   let(:post_id) { posts.first.id }
 
@@ -75,10 +75,10 @@ RSpec.describe "Blog API", type: :request do
   end
 
   describe 'PUT /posts/:id' do
-    let(:valid_attributes) { { title: "Updated Test Title"}}
+    let(:valid_attributes) { { title: 'Updated Test Title' } }
 
     context 'when record exists' do
-      before { put "/posts/#{post_id}", params: valid_attributes}
+      before { put "/posts/#{post_id}", params: valid_attributes }
 
       it 'updates the record' do
         expect(response.body).to be_empty
@@ -90,7 +90,7 @@ RSpec.describe "Blog API", type: :request do
     end
   end
 
-  describe "DELETE /posts/:id" do
+  describe 'DELETE /posts/:id' do
     before { delete "/posts/#{post_id}" }
 
     it 'returns status code 204' do
