@@ -20,9 +20,9 @@ RSpec.describe "Blog API", type: :request do
   describe 'GET /posts/:id' do
     before { get "/posts/#{post_id}" }
 
-    context 'when record exists' do
-      it 'returns te post' do
-        expect(json).not_to must_be_empty
+    context 'when the record exists' do
+      it 'returns the post' do
+        expect(json).not_to be_empty
         expect(json['id']).to eq(post_id)
       end
 
@@ -41,6 +41,60 @@ RSpec.describe "Blog API", type: :request do
       it 'returns a not found message' do
         expect(response.body).to match(/Couldn't find Post/)
       end
+    end
+  end
+
+  describe 'POST /posts' do
+
+    let(:valid_attributes) { { title: 'Test Title' } }
+
+    context 'when the request is valid' do
+      before { post '/posts', params: valid_attributes }
+
+      it 'creates a post' do
+        expect(json['title']).to eq('Test Title')
+      end
+
+      it 'returns status code 201' do
+        expect(response).to have_http_status(201)
+      end
+    end
+
+    context 'when the request is valid' do
+      before { post '/posts', params: { title: '' } }
+
+      it 'returns status code 422' do
+        expect(response).to have_http_status(422)
+      end
+
+      it 'returns a validation failure message' do
+        expect(response.body)
+          .to match(/Validation failed: Title can't be blank/)
+      end
+    end
+  end
+
+  describe 'PUT /posts/:id' do
+    let(:valid_attributes) { { title: "Updated Test Title"}}
+
+    context 'when record exists' do
+      before { put "/posts/#{post_id}", params: valid_attributes}
+
+      it 'updates the record' do
+        expect(response.body).to be_empty
+      end
+
+      it 'returns status code 204' do
+        expect(response).to have_http_status(204)
+      end
+    end
+  end
+
+  describe "DELETE /posts/:id" do
+    before { delete "/posts/#{post_id}" }
+
+    it 'returns status code 204' do
+      expect(response).to have_http_status(204)
     end
   end
 end
