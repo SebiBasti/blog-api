@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="70e6e8bb-5b4b-4949-af39-0045485d465c" name="Default Changelist" comment="moved faker gem to be available in production" />
+    <list default="true" id="70e6e8bb-5b4b-4949-af39-0045485d465c" name="Default Changelist" comment="github workflow integration">
+      <change afterPath="$PROJECT_DIR$/config/database.github.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/test.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/test.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,6 +20,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1pel2Tv2RjS3zOMDq6QbSksoNaw" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -183,7 +195,7 @@
       <workItem from="1615551363008" duration="39000" />
       <workItem from="1615551428926" duration="6331000" />
       <workItem from="1615732333079" duration="3600000" />
-      <workItem from="1615735978226" duration="14013000" />
+      <workItem from="1615735978226" duration="14755000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1615551563733</created>
@@ -248,7 +260,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615753052779</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="github workflow integration">
+      <created>1615753658452</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1615753658452</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -275,6 +294,7 @@
     <MESSAGE value="gemfile.lock update" />
     <MESSAGE value="switched to postgres" />
     <MESSAGE value="moved faker gem to be available in production" />
-    <option name="LAST_COMMIT_MESSAGE" value="moved faker gem to be available in production" />
+    <MESSAGE value="github workflow integration" />
+    <option name="LAST_COMMIT_MESSAGE" value="github workflow integration" />
   </component>
 </project>
