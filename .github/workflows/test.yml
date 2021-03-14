@@ -4,7 +4,7 @@ name: model & request tests
 on: [push]
 
 jobs:
-  test:
+  model_and_request_test:
     env:
       RAILS_ENV: test
       NODE_ENV: test
