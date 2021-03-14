@@ -3,7 +3,8 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
-    json_response(@posts)
+    # json_response(@posts)
+    render json: @posts.as_json(include: :segments), status: 200
   end
 
   def create
@@ -12,7 +13,8 @@ class PostsController < ApplicationController
   end
 
   def show
-    json_response(@post)
+    # json_response(@post)
+    render json: @post.as_json(include: :segments), status: 200
   end
 
   def update

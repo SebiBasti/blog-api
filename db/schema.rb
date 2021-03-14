@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2021_03_12_135753) do
   end
 
   create_table "segments", force: :cascade do |t|
-    t.string "type"
+    t.string "segment_type"
     t.integer "post_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

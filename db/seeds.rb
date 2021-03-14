@@ -1,7 +1,16 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+
+puts '*** Deleting old seed data ***'
+Post.destroy_all
+puts '*** Creating 100 posts ***'
+100.times do
+  new_post = Post.new(title: Faker::Lorem.question)
+  new_post.save
+  p new_post
+  10.times do
+    segm = Segment.new(segment_type: %w[text_block code_block picture youtube_link].sample)
+    segm.post = new_post
+    segm.save
+    p segm
+  end
+end

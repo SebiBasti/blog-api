@@ -45,7 +45,6 @@ RSpec.describe 'Blog API', type: :request do
   end
 
   describe 'POST /posts' do
-
     let(:valid_attributes) { { title: 'Test Title' } }
 
     context 'when the request is valid' do
@@ -68,8 +67,7 @@ RSpec.describe 'Blog API', type: :request do
       end
 
       it 'returns a validation failure message' do
-        expect(response.body)
-          .to match(/Validation failed: Title can't be blank/)
+        expect(response.body).to match(/Validation failed: Title can't be blank/)
       end
     end
   end
