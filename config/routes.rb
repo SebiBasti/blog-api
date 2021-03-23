@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root to: 'posts#index'
   resources :posts do
-    resources :segments
+    resources :segments do
+      resource :text_block
+    end
   end
 end
