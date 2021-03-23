@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Segments API', type: :request do
+describe 'Segments API', type: :request do
   let!(:posting) { create(:post) }
   let!(:segments) { create_list(:segment, 20, post_id: posting.id) }
   let(:post_id) { posting.id }
