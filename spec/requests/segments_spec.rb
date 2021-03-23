@@ -112,7 +112,7 @@ describe 'Segments API', type: :request do
     end
   end
 
-  describe 'DELETE /posts/:id' do
+  describe 'DELETE /posts/:post_id/segments/:id' do
     before { delete "/posts/#{post_id}/segments/#{id}" }
 
     it 'returns status code 204' do
