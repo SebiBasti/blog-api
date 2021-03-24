@@ -4,7 +4,7 @@ require 'net/http'
 class YoutubeLink < ApplicationRecord
   belongs_to :segment
   validates :link, presence: true
-  after_validation :link_valid?
+  validate :link_valid?
 
   def extract_video_id(link)
     # https://stackoverflow.com/a/61033353/13746045
@@ -18,6 +18,3 @@ class YoutubeLink < ApplicationRecord
     errors.add :link, message: 'invalid' if Net::HTTP.get(uri) == 'Bad Request'
   end
 end
-
-
-# after validation
