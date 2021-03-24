@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :segments do
       resource :text_block
       resource :code_block
+      resource :youtube_link
     end
   end
 end
