@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :posts do
     resources :segments do
       resource :text_block
+      resource :code_block
     end
   end
 end
