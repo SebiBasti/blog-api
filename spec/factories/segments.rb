@@ -5,5 +5,8 @@ FactoryBot.define do
     trait :is_text_block do
       segment_type { 'text_block' }
     end
+    trait :is_code_block do
+      segment_type { 'code_block' }
+    end
   end
 end

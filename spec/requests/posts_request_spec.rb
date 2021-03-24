@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Blog API', type: :request do
+describe 'Posts API', type: :request do
   let!(:posts) { create_list(:post, 10) }
   let(:post_id) { posts.first.id }
 
