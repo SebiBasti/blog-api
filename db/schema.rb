@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_24_103727) do
+ActiveRecord::Schema.define(version: 2021_03_24_115620) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,7 +47,16 @@ ActiveRecord::Schema.define(version: 2021_03_24_103727) do
     t.index ["segment_id"], name: "index_text_blocks_on_segment_id"
   end
 
+  create_table "youtube_links", force: :cascade do |t|
+    t.string "link"
+    t.bigint "segment_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["segment_id"], name: "index_youtube_links_on_segment_id"
+  end
+
   add_foreign_key "code_blocks", "segments"
   add_foreign_key "segments", "posts"
   add_foreign_key "text_blocks", "segments"
+  add_foreign_key "youtube_links", "segments"
 end

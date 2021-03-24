@@ -8,5 +8,8 @@ FactoryBot.define do
     trait :is_code_block do
       segment_type { 'code_block' }
     end
+    trait :is_youtube_link do
+      segment_type { 'youtube_link' }
+    end
   end
 end
