@@ -11,5 +11,8 @@ FactoryBot.define do
     trait :is_youtube_link do
       segment_type { 'youtube_link' }
     end
+    trait :is_picture do
+      segment_type { 'picture' }
+    end
   end
 end
