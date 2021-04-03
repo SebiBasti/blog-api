@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "YoutubeLinks", type: :request do
+describe "YoutubeLinks", type: :request do
   let!(:posting) { create(:post) }
   let!(:segment) { create(:segment, :is_youtube_link, post_id: posting.id) }
   let!(:youtube_link) { create(:youtube_link, segment_id: segment.id) }
@@ -54,7 +54,6 @@ RSpec.describe "YoutubeLinks", type: :request do
       end
 
       it 'returns a failure message' do
-        p response.body
         expect(response.body)
           .to match(/Validation failed: Link invalid/)
       end

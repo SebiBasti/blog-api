@@ -14,11 +14,21 @@ class PicturesController < ApplicationController
   end
 
   def update
+    # TODO: -check way to update cloudinary without creating duplicates
+    # if params[:photo]
+    #   Cloudinary::Uploader.destroy(@picture.photo.key) if params[:photo]
+    #   @picture.destroy
+    #   @picture = Picture.new(picture_params)
+    #   @picture.segment = @segment
+    #   @picture.save!
+    # else
+
     @picture.update(picture_params)
     head :no_content
   end
 
   def destroy
+    Cloudinary::Uploader.destroy(@picture.photo.key) if @picture.photo.key
     @picture.destroy
     head :no_content
   end

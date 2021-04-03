@@ -53,7 +53,7 @@ jobs:
           cp config/database.github.yml config/database.yml
           bundle exec rails db:test:prepare
       - name: Create env file
-        run: |
+        run: | # https://stackoverflow.com/questions/60176044/how-do-i-use-an-env-file-with-github-actions
           touch .env
           echo CLOUDINARY_URL=${{ secrets.CLOUDINARY_URL }} >> .env
           cat .env
