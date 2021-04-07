@@ -1,13 +1,15 @@
 require 'rails_helper'
 
 describe 'Segments API', type: :request do
-  let!(:posting) { create(:post) }
+  let(:user) { create(:user) }
+  let!(:posting) { create(:post, created_by: user.id) }
   let!(:segments) { create_list(:segment, 20, post_id: posting.id) }
   let(:post_id) { posting.id }
   let(:id) { segments.first.id }
+  let(:headers) { valid_headers }
 
   describe 'GET /posts/:post_id/segments' do
-    before { get "/posts/#{post_id}/segments" }
+    before { get "/posts/#{post_id}/segments", params: {}, headers: headers }
 
     context 'when post exists' do
       it 'returns status code 200' do
@@ -33,7 +35,7 @@ describe 'Segments API', type: :request do
   end
 
   describe 'GET /posts/:post_id/segments/:id' do
-    before { get "/posts/#{post_id}/segments/#{id}" }
+    before { get "/posts/#{post_id}/segments/#{id}", params: {}, headers: headers }
 
     context 'when post segment exists' do
       it 'returns status code 200' do
@@ -59,10 +61,10 @@ describe 'Segments API', type: :request do
   end
 
   describe 'POST /posts/:post_id/segments' do
-    let(:valid_attributes) { { segment_type: 'text_block' } }
+    let(:valid_attributes) { { segment_type: 'text_block' }.to_json }
 
     context 'when request attributes are valid' do
-      before { post "/posts/#{post_id}/segments", params: valid_attributes }
+      before { post "/posts/#{post_id}/segments", params: valid_attributes, headers: headers }
 
       it 'returns status code 201' do
         expect(response).to have_http_status(201)
@@ -70,7 +72,7 @@ describe 'Segments API', type: :request do
     end
 
     context 'when request attributes are not valid' do
-      before { post "/posts/#{post_id}/segments", params: {} }
+      before { post "/posts/#{post_id}/segments", params: {}, headers: headers }
 
       it 'returns status code 422' do
         expect(response).to have_http_status(422)
@@ -84,9 +86,9 @@ describe 'Segments API', type: :request do
   end
 
   describe 'PUT /posts/:post_id/segments/:id' do
-    let(:valid_attributes) { { segment_type: 'code_block' } }
+    let(:valid_attributes) { { segment_type: 'code_block' }.to_json }
 
-    before { put "/posts/#{post_id}/segments/#{id}", params: valid_attributes }
+    before { put "/posts/#{post_id}/segments/#{id}", params: valid_attributes, headers: headers }
 
     context 'when segment exists' do
       it 'returns status code 204' do
@@ -113,7 +115,7 @@ describe 'Segments API', type: :request do
   end
 
   describe 'DELETE /posts/:post_id/segments/:id' do
-    before { delete "/posts/#{post_id}/segments/#{id}" }
+    before { delete "/posts/#{post_id}/segments/#{id}", params: {}, headers: headers }
 
     it 'returns status code 204' do
       expect(response).to have_http_status(204)

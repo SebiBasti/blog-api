@@ -2,13 +2,13 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :update, :destroy]
 
   def index
-    @posts = Post.all
+    @posts = current_user.posts
     # json_response(@posts)
-    render json: @posts.as_json(include: :segments), status: 200
+    json_response(@posts)
   end
 
   def create
-    @post = Post.create!(post_params)
+    @post = current_user.posts.create!(post_params)
     json_response(@post, :created)
   end
 
