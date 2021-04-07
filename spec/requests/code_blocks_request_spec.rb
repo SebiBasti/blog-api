@@ -1,15 +1,17 @@
 require 'rails_helper'
 
 describe 'CodeBlocks API', type: :request do
-  let!(:posting) { create(:post) }
+  let(:user) { create(:user) }
+  let!(:posting) { create(:post, created_by: user.id) }
   let!(:segment) { create(:segment, :is_code_block, post_id: posting.id) }
   let!(:code_block) { create(:code_block, segment_id: segment.id) }
   let(:post_id) { posting.id }
   let(:segment_id) { segment.id }
   let(:id) { code_block.id }
+  let(:headers) { valid_headers }
 
   describe 'GET /posts/:post_id/segments/:id/code_block' do
-    before { get "/posts/#{post_id}/segments/#{segment_id}/code_block" }
+    before { get "/posts/#{post_id}/segments/#{segment_id}/code_block", params: {}, headers: headers }
 
     context 'when code block exists' do
       it 'returns status code 200' do
@@ -35,10 +37,10 @@ describe 'CodeBlocks API', type: :request do
   end
 
   describe 'POST /posts/:post_id/segments/:segment_id/code_block' do
-    let(:valid_attributes) { { content: 'Test', code_type: 'ruby' } }
+    let(:valid_attributes) { { content: 'Test', code_type: 'ruby' }.to_json }
 
     context 'when request attributes are valid' do
-      before { post "/posts/#{post_id}/segments/#{segment_id}/code_block", params: valid_attributes }
+      before { post "/posts/#{post_id}/segments/#{segment_id}/code_block", params: valid_attributes, headers: headers }
 
       it 'returns status code 201' do
         expect(response).to have_http_status(201)
@@ -46,7 +48,7 @@ describe 'CodeBlocks API', type: :request do
     end
 
     context 'when request attributes are not valid' do
-      before { post "/posts/#{post_id}/segments/#{segment_id}/code_block", params: {} }
+      before { post "/posts/#{post_id}/segments/#{segment_id}/code_block", params: {}, headers: headers }
 
       it 'returns status code 422' do
         expect(response).to have_http_status(422)
@@ -60,9 +62,9 @@ describe 'CodeBlocks API', type: :request do
   end
 
   describe 'PUT /posts/:post_id/segments/:segment_id/code_block' do
-    let(:valid_attributes) { { content: 'Update', code_type: 'java' } }
+    let(:valid_attributes) { { content: 'Update', code_type: 'java' }.to_json }
 
-    before { put "/posts/#{post_id}/segments/#{segment_id}/code_block", params: valid_attributes }
+    before { put "/posts/#{post_id}/segments/#{segment_id}/code_block", params: valid_attributes, headers: headers }
 
     context 'when code block exists' do
       it 'returns status code 204' do
@@ -90,7 +92,7 @@ describe 'CodeBlocks API', type: :request do
   end
 
   describe 'DELETE /posts/:post_id/segments/:segment_id/code_block' do
-    before { delete "/posts/#{post_id}/segments/#{segment_id}/code_block" }
+    before { delete "/posts/#{post_id}/segments/#{segment_id}/code_block", params: {}, headers: headers }
 
     it 'returns status code 204' do
       expect(response).to have_http_status(204)

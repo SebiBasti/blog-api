@@ -46,7 +46,9 @@ end
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
 RSpec.configure do |config|
-  config.include RequestSpecHelper, type: :request
+  # config.include RequestSpecHelper, type: :request // OLD VERSION
+  config.include RequestSpecHelper
+  config.include ControllerSpecHelper
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"

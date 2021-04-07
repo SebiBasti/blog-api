@@ -14,3 +14,5 @@ puts '*** Creating 100 posts ***'
     p segm
   end
 end
+
+# TODO: -update seeds

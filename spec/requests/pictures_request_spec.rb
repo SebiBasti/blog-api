@@ -1,15 +1,17 @@
 require 'rails_helper'
 
 describe "Pictures", type: :request do
-  let!(:posting) { create(:post) }
+  let(:user) { create(:user) }
+  let!(:posting) { create(:post, created_by: user.id) }
   let!(:segment) { create(:segment, :is_picture, post_id: posting.id) }
   let!(:picture) { create(:picture, :is_external_link, segment_id: segment.id) }
   let(:post_id) { posting.id }
   let(:segment_id) { segment.id }
   let(:id) { picture.id }
+  let(:headers) { valid_headers }
 
   describe 'GET /posts/:post_id/segments/:id/picture' do
-    before { get "/posts/#{post_id}/segments/#{segment_id}/picture" }
+    before { get "/posts/#{post_id}/segments/#{segment_id}/picture", params: {}, headers: headers }
 
     context 'when picture exists' do
       it 'returns status code 200' do
@@ -35,11 +37,11 @@ describe "Pictures", type: :request do
   end
 
   describe 'POST /posts/:post_id/segments/:segment_id/picture' do
-    let(:valid_attributes_external) { { external_link: 'https://de.wikipedia.org/wiki/Ruby_(Programmiersprache)#/media/Datei:Ruby_logo.svg' } }
-    let(:valid_attributes_cloudinary) { { photo: Rack::Test::UploadedFile.new('spec/support/assets/test.jpg', 'image/jpg') } }
+    let(:valid_attributes_external) { { external_link: 'https://de.wikipedia.org/wiki/Ruby_(Programmiersprache)#/media/Datei:Ruby_logo.svg' }.to_json }
+    let(:valid_attributes_cloudinary) { { photo: Rack::Test::UploadedFile.new('spec/support/assets/test.jpg', 'image/jpg') }.to_json }
 
     context 'when request attributes are external link' do
-      before { post "/posts/#{post_id}/segments/#{segment_id}/picture", params: valid_attributes_external }
+      before { post "/posts/#{post_id}/segments/#{segment_id}/picture", params: valid_attributes_external, headers: headers }
 
       it 'returns status code 201' do
         expect(response).to have_http_status(201)
@@ -47,7 +49,7 @@ describe "Pictures", type: :request do
     end
 
     context 'when request attributes are not valid' do
-      before { post "/posts/#{post_id}/segments/#{segment_id}/picture", params: {} }
+      before { post "/posts/#{post_id}/segments/#{segment_id}/picture", params: {}, headers: headers }
 
       it 'returns status code 422' do
         expect(response).to have_http_status(422)
@@ -61,9 +63,9 @@ describe "Pictures", type: :request do
   end
 
   describe 'PUT /posts/:post_id/segments/:segment_id/picture' do
-    let(:valid_attributes_external) { { external_link: 'https://de.wikipedia.org/wiki/Ruby_on_Rails#/media/Datei:Ruby_on_Rails_logo.jpg' } }
+    let(:valid_attributes_external) { { external_link: 'https://de.wikipedia.org/wiki/Ruby_on_Rails#/media/Datei:Ruby_on_Rails_logo.jpg' }.to_json }
 
-    before { put "/posts/#{post_id}/segments/#{segment_id}/picture", params: valid_attributes_external }
+    before { put "/posts/#{post_id}/segments/#{segment_id}/picture", params: valid_attributes_external, headers: headers }
 
     context 'when external picture exists' do
 
@@ -91,7 +93,7 @@ describe "Pictures", type: :request do
   end
 
   describe 'DELETE /posts/:post_id/segments/:segment_id/picture' do
-    before { delete "/posts/#{post_id}/segments/#{segment_id}/picture" }
+    before { delete "/posts/#{post_id}/segments/#{segment_id}/picture", params: {}, headers: headers }
 
     it 'returns status code 204' do
       expect(response).to have_http_status(204)
