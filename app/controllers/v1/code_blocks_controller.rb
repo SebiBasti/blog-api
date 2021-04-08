@@ -1,4 +1,4 @@
-class CodeBlocksController < ApplicationController
+class V1::CodeBlocksController < ApplicationController
   before_action :set_segment
   before_action :set_segment_code_block, only: [:show, :update, :destroy]
 

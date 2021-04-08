@@ -4,7 +4,8 @@ describe Picture, type: :model do
 
   it { should belong_to(:segment) }
 
-  let(:posting) { create(:post) }
+  let(:user) { create(:user) }
+  let!(:posting) { create(:post, user_id: user.id) }
   let(:segment) { create(:segment, :is_picture, post_id: posting.id) }
 
   it 'should raise an error when both picture sources are provided' do

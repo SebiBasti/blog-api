@@ -49,4 +49,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'cloudinary'
 gem 'faker'
+gem 'jsonapi-serializer'
 gem 'jwt'

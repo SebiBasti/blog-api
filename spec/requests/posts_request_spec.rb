@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'Posts API', type: :request do
   let(:user) { create(:user) }
-  let!(:posts) { create_list(:post, 10, created_by: user.id) }
+  let!(:posts) { create_list(:post, 10, user_id: user.id) }
   let(:post_id) { posts.first.id }
   let(:headers) { valid_headers }
 
@@ -11,7 +11,7 @@ describe 'Posts API', type: :request do
 
     it 'returns posts' do
       expect(json).not_to be_empty
-      expect(json.size).to eq(10)
+      expect(json['data'].size).to eq(10)
     end
 
     it 'returns status code 200' do
@@ -25,7 +25,7 @@ describe 'Posts API', type: :request do
     context 'when the record exists' do
       it 'returns the post' do
         expect(json).not_to be_empty
-        expect(json['id']).to eq(post_id)
+        expect(json['data']['id'].to_i).to eq(post_id)
       end
 
       it 'returns status code 200' do
@@ -47,7 +47,7 @@ describe 'Posts API', type: :request do
   end
 
   describe 'POST /posts' do
-    let(:valid_attributes) { { title: 'Test Title', created_by: user.id.to_s }.to_json }
+    let(:valid_attributes) { { title: 'Test Title', user_id: user.id.to_s }.to_json }
 
     context 'when the request is valid' do
       before { post '/posts', params: valid_attributes, headers: headers }

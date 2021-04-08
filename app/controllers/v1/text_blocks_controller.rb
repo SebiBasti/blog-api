@@ -1,4 +1,4 @@
-class TextBlocksController < ApplicationController
+class V1::TextBlocksController < ApplicationController
   before_action :set_segment
   before_action :set_segment_text_block, only: [:show, :update, :destroy]
 

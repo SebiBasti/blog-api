@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_07_110759) do
+ActiveRecord::Schema.define(version: 2021_03_30_124242) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,9 +63,10 @@ ActiveRecord::Schema.define(version: 2021_04_07_110759) do
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.string "sub_title"
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "created_by"
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "segments", force: :cascade do |t|
@@ -104,6 +105,7 @@ ActiveRecord::Schema.define(version: 2021_04_07_110759) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "code_blocks", "segments"
   add_foreign_key "pictures", "segments"
+  add_foreign_key "posts", "users"
   add_foreign_key "segments", "posts"
   add_foreign_key "text_blocks", "segments"
   add_foreign_key "youtube_links", "segments"

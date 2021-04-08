@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'Segments API', type: :request do
   let(:user) { create(:user) }
-  let!(:posting) { create(:post, created_by: user.id) }
+  let!(:posting) { create(:post, user_id: user.id) }
   let!(:segments) { create_list(:segment, 20, post_id: posting.id) }
   let(:post_id) { posting.id }
   let(:id) { segments.first.id }

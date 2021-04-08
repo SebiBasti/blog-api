@@ -1,10 +1,9 @@
-class PostsController < ApplicationController
+class V1::PostsController < ApplicationController
   before_action :set_post, only: [:show, :update, :destroy]
 
   def index
     @posts = current_user.posts
-    # json_response(@posts)
-    json_response(@posts)
+    json_response(PostSerializer.new(@posts).serializable_hash)
   end
 
   def create
@@ -13,8 +12,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    # json_response(@post)
-    render json: @post.as_json(include: :segments), status: 200
+    json_response(PostSerializer.new(@post).serializable_hash)
   end
 
   def update
