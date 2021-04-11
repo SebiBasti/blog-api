@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "YoutubeLinks", type: :request do
   let(:user) { create(:user) }
-  let!(:posting) { create(:post, created_by: user.id) }
+  let!(:posting) { create(:post, user_id: user.id) }
   let!(:segment) { create(:segment, :is_youtube_link, post_id: posting.id) }
   let!(:youtube_link) { create(:youtube_link, segment_id: segment.id) }
   let(:post_id) { posting.id }

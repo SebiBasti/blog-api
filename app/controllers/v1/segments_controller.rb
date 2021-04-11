@@ -1,4 +1,4 @@
-class SegmentsController < ApplicationController
+class V1::SegmentsController < ApplicationController
   before_action :set_post
   before_action :set_post_segment, only: [:show, :update, :destroy]
 

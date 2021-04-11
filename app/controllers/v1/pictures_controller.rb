@@ -1,4 +1,4 @@
-class PicturesController < ApplicationController
+class V1::PicturesController < ApplicationController
   before_action :set_segment
   before_action :set_segment_picture, only: [:show, :update, :destroy]
 

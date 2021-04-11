@@ -1,4 +1,4 @@
-class YoutubeLinksController < ApplicationController
+class V1::YoutubeLinksController < ApplicationController
   before_action :set_segment
   before_action :set_segment_youtube_link, only: [:show, :update, :destroy]
 

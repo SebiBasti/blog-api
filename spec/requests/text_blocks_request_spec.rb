@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'TextBlocks API', type: :request do
   let(:user) { create(:user) }
-  let!(:posting) { create(:post, created_by: user.id) }
+  let!(:posting) { create(:post, user_id: user.id) }
   let!(:segment) { create(:segment, :is_text_block, post_id: posting.id) }
   let!(:text_block) { create(:text_block, segment_id: segment.id) }
   let(:post_id) { posting.id }

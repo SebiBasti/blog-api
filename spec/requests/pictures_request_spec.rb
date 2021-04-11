@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "Pictures", type: :request do
   let(:user) { create(:user) }
-  let!(:posting) { create(:post, created_by: user.id) }
+  let!(:posting) { create(:post, user_id: user.id) }
   let!(:segment) { create(:segment, :is_picture, post_id: posting.id) }
   let!(:picture) { create(:picture, :is_external_link, segment_id: segment.id) }
   let(:post_id) { posting.id }
