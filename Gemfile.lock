@@ -107,7 +107,7 @@ GEM
     listen (3.5.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
-    loofah (2.9.0)
+    loofah (2.9.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
@@ -122,9 +122,7 @@ GEM
     msgpack (1.4.2)
     netrc (0.11.0)
     nio4r (2.5.7)
-    nokogiri (1.11.2-x86_64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.11.2-x86_64-linux)
+    nokogiri (1.11.3-x86_64-darwin)
       racc (~> 1.4)
     pg (1.2.3)
     pry (0.13.1)
@@ -214,7 +212,6 @@ GEM
 
 PLATFORMS
   x86_64-darwin-19
-  x86_64-linux
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
@@ -238,7 +235,7 @@ DEPENDENCIES
   tzinfo-data
 
 RUBY VERSION
-   ruby 3.0.0p0
+   ruby 3.0.1p64
 
 BUNDLED WITH
-   2.2.3
+   2.2.15
