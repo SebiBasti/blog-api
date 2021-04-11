@@ -1,0 +1,4 @@
+inherit_from: ~/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/rubocop-1.12.1/config/default.yml
+
+Layout/LineLength:
+  Max: 140

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "Pictures", type: :request do
+describe 'Pictures', type: :request do
   let(:user) { create(:user) }
   let!(:posting) { create(:post, user_id: user.id) }
   let!(:segment) { create(:segment, :is_picture, post_id: posting.id) }
