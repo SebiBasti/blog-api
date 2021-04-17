@@ -20,7 +20,7 @@ def cloudinary_picture
 end
 
 puts '*** Creating 10 posts ***'
-10.times do
+100.times do
   new_post = Post.new(title: Faker::Lorem.question, sub_title: Faker::Lorem.words(number: 2).join(' '))
   new_post.user = user
   new_post.save
@@ -38,7 +38,7 @@ puts '*** Creating 10 posts ***'
     when 'code_block'
       code_block = CodeBlock.new(
         code_type: %w[ruby html css javascript].sample,
-        content: Faker::Lorem.paragraph_by_chars(number: 50) )
+        content: Faker::Lorem.paragraph_by_chars(number: 50))
       code_block.segment = segm
       code_block.save
       p code_block
