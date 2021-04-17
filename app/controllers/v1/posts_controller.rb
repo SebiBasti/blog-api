@@ -2,7 +2,7 @@ class V1::PostsController < ApplicationController
   before_action :set_post, only: [:show, :update, :destroy]
 
   def index
-    @posts = current_user.posts
+    @posts = current_user.posts.paginate(page: params[:page], per_page: 10)
     json_response(PostSerializer.new(@posts).serializable_hash)
   end
 
