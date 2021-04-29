@@ -12,9 +12,7 @@ class V1::PostsController < ApplicationController
   end
 
   def show
-    show_serializer = PostSerializer.new(@post).serializable_hash
-    show_serializer[:params] = { id: @post.title } # Next.js dynamic routing needs this
-    json_response(show_serializer)
+    json_response(PostSerializer.new(@post).serializable_hash)
   end
 
   def update
